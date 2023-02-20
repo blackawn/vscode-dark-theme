@@ -3,6 +3,7 @@
   "displayName": "vscode-dark-theme",
   "description": "vscode dark theme",
   "version": "0.0.1",
+  "publisher": "blackawn",
   "license": "MIT",
   "engines": {
     "vscode": "^1.75.0"
