@@ -180,7 +180,8 @@ export default function getThemeConfig(theme: themeType = 'zinc', property: any 
           "variable.other.constant.property",
           "support.variable.property",
           "variable.other.object.property",
-          "meta.object-literal.key"
+          "meta.object-literal.key",
+          "variable.other.enummember"
         ],
         "settings": {
 
@@ -204,6 +205,15 @@ export default function getThemeConfig(theme: themeType = 'zinc', property: any 
         ],
         "settings": {
           "foreground": o(c.blue[500], 90)
+        }
+      },
+      {
+        "name": "lib function",
+        "scope": [
+          "support.function",
+        ],
+        "settings": {
+          "foreground": o(c.orange[400], 85)
         }
       },
       {
@@ -355,7 +365,8 @@ export default function getThemeConfig(theme: themeType = 'zinc', property: any 
         "scope": [
           "support.type",
           "entity.name.type",
-          "entity.name.type.interface"
+          "entity.name.type.interface",
+          "entity.other.inherited-class"
         ],
         "settings": {
           "foreground": o(c.fuchsia[300], 70)
