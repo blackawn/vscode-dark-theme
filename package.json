@@ -2,7 +2,7 @@
   "name": "vscode-dark-theme",
   "displayName": "vscode-dark-theme",
   "description": "vscode dark theme",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "publisher": "blackawn",
   "license": "MIT",
   "engines": {
@@ -18,35 +18,26 @@
   "contributes": {
     "themes": [
       {
-        "label": "Slate Theme",
+        "label": "Theme Violet",
         "uiTheme": "vs-dark",
-        "path": "./themes/slate-theme.json"
+        "path": "./themes/theme-violet.json"
       },
       {
-        "label": "Gray Theme",
+        "label": "Theme Blue",
         "uiTheme": "vs-dark",
-        "path": "./themes/gray-theme.json"
+        "path": "./themes/theme-blue.json"
       },
       {
-        "label": "Zinc Theme",
+        "label": "Theme Indigo",
         "uiTheme": "vs-dark",
-        "path": "./themes/zinc-theme.json"
-      },
-      {
-        "label": "Stone Theme",
-        "uiTheme": "vs-dark",
-        "path": "./themes/stone-theme.json"
-      },
-      {
-        "label": "Neutral Theme",
-        "uiTheme": "vs-dark",
-        "path": "./themes/neutral-theme.json"
+        "path": "./themes/theme-indigo.json"
       }
     ]
   },
   "scripts": {
-    "build": "esno src/index.ts",
-    "dev": "nodemon --watch src -e ts --exec \"esno src/index.ts\"",
+    "build": "esno src/build.ts",
+    "dev": "nodemon --watch src -e ts --exec \"esno src/build.ts\"",
+    "clean": "esno src/clean.ts",
     "lint": "eslint .",
     "release": "npm run build && npx bumpp --commit --tag --push --all && vsce publish --no-dependencies",
     "package": "vsce package"

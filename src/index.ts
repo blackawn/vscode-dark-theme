@@ -1,65 +1,16 @@
-import fs from 'fs'
-import path from 'path'
+import { colors as c, applyColorOpacity as o } from "./utils/getColors"
+import { themeType } from "./utils/getColors"
 
-import getThemeConfig from "./config";
-import { colors } from "./colors";
+import getTokenColors from "./config/tokenColors"
+import getColors from "./config/colors"
+import getSemanticTokenColors from "./config/semanticTokenColors"
 
-function writeFile() {
-  fs.writeFileSync(
-    './themes/slate-theme.json',
-    `${JSON.stringify(getThemeConfig('slate', {
-      name: 'Slate Theme',
-      type: 'dark'
-    }), null, 2)}\n`,
-  )
 
-  fs.writeFileSync(
-    './themes/gray-theme.json',
-    `${JSON.stringify(getThemeConfig('gray', {
-      name: 'Gray Theme',
-      type: 'dark'
-    }), null, 2)}\n`,
-  )
+export default function getThemeConfig(theme: themeType = 'dark', property: any = {}, color: string = 'violet') {
 
-  fs.writeFileSync(
-    './themes/zinc-theme.json',
-    `${JSON.stringify(getThemeConfig('zinc', {
-      name: 'Zinc Theme',
-      type: 'dark'
-    }), null, 2)}\n`,
-  )
-
-  fs.writeFileSync(
-    './themes/stone-theme.json',
-    `${JSON.stringify(getThemeConfig('stone', {
-      name: 'Stone Theme',
-      type: 'dark'
-    }), null, 2)}\n`,
-  )
-
-  fs.writeFileSync(
-    './themes/neutral-theme.json',
-    `${JSON.stringify(getThemeConfig('neutral', {
-      name: 'Neutral Theme',
-      type: 'dark'
-    }), null, 2)}\n`,
-  )
+  return {
+    ...property,
+    "colors": getTokenColors(theme, color),
+    "tokenColors": getColors(theme, color)
+  }
 }
-
-function dev(){
-  const filePath = path.join(process.env.USERPROFILE, "/AppData/Roaming/Code/User/settings.json");
-
-  const settings = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-  
-  settings["editor.tokenColorCustomizations"]["textMateRules"] = getThemeConfig().tokenColors;
-  //settings["workbench.colorCustomizations"] = getThemeConfig('zinc', 'purple').colors;
-  
-  fs.writeFileSync(path.join(filePath), JSON.stringify(settings, null, 4), 'utf-8');
-}
-
-
-
-
-
-//dev()
-writeFile()

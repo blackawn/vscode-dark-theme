@@ -1,1 +1,0 @@
-# VSCode Dark Theme

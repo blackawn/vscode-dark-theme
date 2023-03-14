@@ -17,6 +17,8 @@ interface Theme {
   }
 }
 
+export declare type themeType = 'dark'
+
 export const colors: Theme['colors'] = {
 //  inherit: 'inherit',
 //  current: 'currentColor',
@@ -345,7 +347,7 @@ export const colors: Theme['colors'] = {
   },
 }
 
-export function appalyColorOpacity(hex: string, opacity: number = 100) {
+export function applyColorOpacity(hex: string, opacity: number = 100) {
 
   if (typeof hex !== 'string') throw new Error(`'hex' must be a string`)
 
